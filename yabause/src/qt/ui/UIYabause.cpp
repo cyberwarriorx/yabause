@@ -36,7 +36,7 @@
 #include "UIMemoryEditor.h"
 #include "UIMemoryTransfer.h"
 #include "UIAbout.h"
-#include "../YabauseGL.h"
+#include "../YabauseGLProxy.h"
 #include "../QtYabause.h"
 #include "../CommonDialogs.h"
 
@@ -47,6 +47,7 @@
 #include <QUrl>
 #include <QDesktopServices>
 #include <QDateTime>
+#include <QFile>
 
 #include <QDebug>
 
@@ -96,9 +97,9 @@ UIYabause::UIYabause( QWidget* parent )
 		cbVideoDriver->addItem( VIDCoreList[i]->Name, VIDCoreList[i]->id );
 	cbVideoDriver->blockSignals( false );
 	// create glcontext
-	mYabauseGL = new YabauseGL( this );
+	mYabauseGL = new YabauseGLProxy( this );
 	// and set it as central application widget
-	setCentralWidget( mYabauseGL );
+	setCentralWidget( mYabauseGL->getWidget() );
 	// create log widget
 	teLog = new QTextEdit( this );
 	teLog->setReadOnly( true );
@@ -136,6 +137,7 @@ UIYabause::UIYabause( QWidget* parent )
 	connect( hideMouseTimer, SIGNAL( timeout() ), this, SLOT( hideMouse() ));
 	connect( mouseCursorTimer, SIGNAL( timeout() ), this, SLOT( cursorRestore() ));
 	connect( mYabauseThread, SIGNAL( toggleEmulateMouse( bool ) ), this, SLOT( toggleEmulateMouse( bool ) ) );
+	connect( mYabauseThread, SIGNAL( disableGL() ), this, SLOT( disableGL() ) );
 
 	// Load shortcuts
 	VolatileSettings* vs = QtYabause::volatileSettings();
@@ -756,7 +758,9 @@ void UIYabause::on_aFileSettings_triggered()
 			newhash["General/CdRom"]!=hash["General/CdRom"] ||
 			newhash["General/CdRomISO"]!=hash["General/CdRomISO"] ||
 			newhash["General/ClockSync"]!=hash["General/ClockSync"] ||
-			newhash["General/FixedBaseTime"]!=hash["General/FixedBaseTime"]
+			newhash["General/FixedBaseTime"]!=hash["General/FixedBaseTime"] ||
+         newhash["Advanced/EnableScuDspDynarec"] != hash["Advanced/EnableScuDspDynarec"] ||
+         newhash["Sound/EnableScspDspDynarec"] != hash["Sound/EnableScspDspDynarec"]
 		)
 		{
 			if ( mYabauseThread->pauseEmulation( true, true ) )
@@ -908,7 +912,7 @@ void UIYabause::on_mFileSaveState_triggered( QAction* a )
 	if ( a == aFileSaveStateAs )
 		return;
 	YabauseLocker locker( mYabauseThread );
-	if ( YabSaveStateSlot( QtYabause::volatileSettings()->value( "General/SaveStates", getDataDirPath() ).toString().toLatin1().constData(), a->data().toInt() ) != 0 )
+	if ( YabSaveStateSlot( QFile::encodeName( QtYabause::volatileSettings()->value( "General/SaveStates", getDataDirPath() ).toString()).constData(), a->data().toInt() ) != 0 )
 		CommonDialogs::information( QtYabause::translate( "Couldn't save state file" ) );
 	else
 		refreshStatesActions();
@@ -919,7 +923,7 @@ void UIYabause::on_mFileLoadState_triggered( QAction* a )
 	if ( a == aFileLoadStateAs )
 		return;
 	YabauseLocker locker( mYabauseThread );
-	if ( YabLoadStateSlot( QtYabause::volatileSettings()->value( "General/SaveStates", getDataDirPath() ).toString().toLatin1().constData(), a->data().toInt() ) != 0 )
+	if ( YabLoadStateSlot( QFile::encodeName( QtYabause::volatileSettings()->value( "General/SaveStates", getDataDirPath() ).toString()).constData(), a->data().toInt() ) != 0 )
 		CommonDialogs::information( QtYabause::translate( "Couldn't load state file" ) );
 }
 
@@ -929,7 +933,7 @@ void UIYabause::on_aFileSaveStateAs_triggered()
 	const QString fn = CommonDialogs::getSaveFileName( QtYabause::volatileSettings()->value( "General/SaveStates", getDataDirPath() ).toString(), QtYabause::translate( "Choose a file to save your state" ), QtYabause::translate( "Yabause Save State (*.yss)" ) );
 	if ( fn.isNull() )
 		return;
-	if ( YabSaveState( fn.toLatin1().constData() ) != 0 )
+	if ( YabSaveState( QFile::encodeName(fn).constData() ) != 0 )
 		CommonDialogs::information( QtYabause::translate( "Couldn't save state file" ) );
 }
 
@@ -939,7 +943,7 @@ void UIYabause::on_aFileLoadStateAs_triggered()
 	const QString fn = CommonDialogs::getOpenFileName( QtYabause::volatileSettings()->value( "General/SaveStates", getDataDirPath() ).toString(), QtYabause::translate( "Select a file to load your state" ), QtYabause::translate( "Yabause Save State (*.yss)" ) );
 	if ( fn.isNull() )
 		return;
-	if ( YabLoadState( fn.toLatin1().constData() ) != 0 )
+	if ( YabLoadState( QFile::encodeName(fn).constData() ) != 0 )
 		CommonDialogs::information( QtYabause::translate( "Couldn't load state file" ) );
 	else
 		aEmulationRun->trigger();
@@ -955,10 +959,6 @@ void UIYabause::on_aFileScreenshot_triggered()
 			filters << QString( ba ).toLower();
 	for ( int i = 0; i < filters.count(); i++ )
 		filters[i] = QtYabause::translate( "%1 Images (*.%2)" ).arg( filters[i].toUpper() ).arg( filters[i] );
-
-#if defined(HAVE_LIBGL) && !defined(QT_OPENGL_ES_1) && !defined(QT_OPENGL_ES_2)
-	glReadBuffer(GL_FRONT);
-#endif
 
 	// take screenshot of gl view
 	QImage screenshot = mYabauseGL->grabFrameBuffer();
@@ -1288,4 +1288,10 @@ void UIYabause::reset()
 void UIYabause::toggleEmulateMouse( bool enable )
 {
 	emulateMouse = enable;
+}
+
+void UIYabause::disableGL( )
+{
+	mYabauseGL->select(this, YabauseGLProxy::SOFTWARE);
+	setCentralWidget( mYabauseGL->getWidget() );
 }

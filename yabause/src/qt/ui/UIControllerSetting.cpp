@@ -61,7 +61,8 @@ void UIControllerSetting::setScanFlags(u32 scanMask)
 	switch (mPerType)
 	{
 		case PERPAD:
-			scanFlags = PERSF_KEY | PERSF_BUTTON | PERSF_HAT;
+      case PERVIRTUALON:
+			scanFlags = PERSF_KEY | PERSF_BUTTON | PERSF_HAT | PERSF_AXIS;
 			break;
 		case PERWHEEL:
 		case PERMISSIONSTICK:
@@ -92,7 +93,7 @@ void UIControllerSetting::keyPressEvent( QKeyEvent* e )
 	if ( mTimer->isActive() )
 	{
 		if ( e->key() != Qt::Key_Escape )
-		{
+      {
 			setPadKey( e->key() );
 		}
 		else

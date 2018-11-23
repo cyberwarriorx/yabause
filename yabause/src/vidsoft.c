@@ -73,7 +73,7 @@ static INLINE u32 COLSATSTRIPPRIORITY(u32 pixel) { return (0xFF000000 | pixel); 
 
 
 int VIDSoftInit(void);
-void VIDSoftSetupGL(void);
+int VIDSoftSetupGL(void);
 void VIDSoftDeInit(void);
 void VIDSoftResize(unsigned int, unsigned int, int);
 int VIDSoftIsFullscreen(void);
@@ -161,6 +161,7 @@ GLuint fshader = 0;
 GLuint gl_shader_prog = 0;
 GLuint gl_texture_id = 0;
 #endif
+extern int VideoUseGL;
 int vdp2_x_hires = 0;
 int vdp2_interlace = 0;
 static int rbg0height = 0;
@@ -2179,7 +2180,9 @@ int VIDSoftInit(void)
    vdp2height = 224;
 
 #ifdef USE_OPENGL
-   VIDSoftSetupGL();
+   if (VideoUseGL)
+      if (VIDSoftSetupGL() != 0)
+         return -1;
 #endif
 
    for (i = 0; i < 6; i++)
@@ -2211,7 +2214,7 @@ void VIDSoftSetBilinear(int b)
 
 //////////////////////////////////////////////////////////////////////////////
 
-void VIDSoftSetupGL(void)
+int VIDSoftSetupGL(void)
 {
 #ifdef USE_OPENGL
    GLint status;
@@ -2266,14 +2269,22 @@ void VIDSoftSetupGL(void)
    glCompileShader(vshader);
 
    glGetShaderiv(vshader, GL_COMPILE_STATUS, &status);
-   if (status == GL_FALSE) { YGLLOG("Failed to compile vertex shader\n"); }
+   if (status == GL_FALSE)
+   {
+      YGLLOG("Failed to compile vertex shader\n");
+      return -1;
+   }
 
    fshader = glCreateShader(GL_FRAGMENT_SHADER);
    glShaderSource(fshader, 1, &fshader_src, NULL);
    glCompileShader(fshader);
 
    glGetShaderiv(fshader, GL_COMPILE_STATUS, &status);
-   if (status == GL_FALSE) { YGLLOG("Failed to compile fragment shader\n"); }
+   if (status == GL_FALSE)
+   {
+      YGLLOG("Failed to compile fragment shader\n");
+      return -1;
+   }
 	
    gl_shader_prog = glCreateProgram();
    glAttachShader(gl_shader_prog, vshader);
@@ -2283,7 +2294,11 @@ void VIDSoftSetupGL(void)
 
    glValidateProgram(gl_shader_prog);
    glGetProgramiv(gl_shader_prog, GL_LINK_STATUS, &status);
-   if (status == GL_FALSE) { YGLLOG("Failed to link shader program\n"); }
+   if (status == GL_FALSE)
+   {
+      YGLLOG("Failed to link shader program\n");
+      return -1;
+   }
 
    glUseProgram(gl_shader_prog);
 	
@@ -2307,6 +2322,7 @@ void VIDSoftSetupGL(void)
 
    glUniform1i(glGetUniformLocation(gl_shader_prog, "sattex"), 0);
 #endif
+   return 0;
 }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -2325,12 +2341,15 @@ void VIDSoftDeInit(void)
    if (vdp1framebuffer[1])
       free(vdp1framebuffer[1]);
 #ifdef USE_OPENGL
-   if (gl_texture_id) { glDeleteTextures(1, &gl_texture_id); }
-   if (gl_shader_prog) { glDeleteProgram(gl_shader_prog); }
-   if (vshader) { glDeleteShader(vshader); }
-   if (fshader) { glDeleteShader(fshader); }
-   if (vao) { glDeleteVertexArrays(1, &vao); }
-   if (vbo) { glDeleteBuffers(1, &vbo); }
+   if (VideoUseGL)
+   {
+      if (gl_texture_id) { glDeleteTextures(1, &gl_texture_id); }
+      if (gl_shader_prog) { glDeleteProgram(gl_shader_prog); }
+      if (vshader) { glDeleteShader(vshader); }
+      if (fshader) { glDeleteShader(fshader); }
+      if (vao) { glDeleteVertexArrays(1, &vao); }
+      if (vbo) { glDeleteBuffers(1, &vbo); }
+   }
 #endif
 }
 
@@ -2341,11 +2360,14 @@ static int IsFullscreen = 0;
 void VIDSoftResize(unsigned int w, unsigned int h, int on)
 {
 #ifdef USE_OPENGL
-   IsFullscreen = on;
-   glClear(GL_COLOR_BUFFER_BIT);
-   glViewport(0, 0, w, h);
-   outputwidth = w;
-   outputheight = h;
+   if (VideoUseGL)
+   {
+      IsFullscreen = on;
+      glClear(GL_COLOR_BUFFER_BIT);
+      glViewport(0, 0, w, h);
+      outputwidth = w;
+      outputheight = h;
+   }
 #endif
 }
 
@@ -2601,6 +2623,7 @@ static int getpixel(int linenumber, int currentlineindex, vdp1cmd_struct *cmd, u
 				currentPixel = (colorbank&0xff00) | currentPixel;
 			break;
 		case 0x5://16bpp bank
+		case 0x6://prohibited, used by (at least) Beach de Reach and seems to behave like 0x5
 			endcode = 0x7fff;
          currentPixel = Vdp1ReadPattern64k(characterAddress + (linenumber*characterWidth * 2), currentlineindex, ram);
 			if(isTextured && endcodesEnabled && currentPixel == endcode)
@@ -3676,11 +3699,37 @@ void VidsoftDrawSprite(Vdp2 * vdp2_regs, u8 * spr_window_mask, u8* vdp1_front_fr
                {
                   // 16 BPP               
                   u8 alpha = 0x3F;
-                  if ((SPCCCS == 3) && TestBothWindow(vdp2_regs->WCTLD >> 8, colorcalcwindow, i, i2) && (vdp2_regs->CCCTL & 0x40))
+                  if (TestBothWindow(vdp2_regs->WCTLD >> 8, colorcalcwindow, i, i2) && (vdp2_regs->CCCTL & 0x40))
                   {
-                     alpha = colorcalctable[0];
-                     if (vdp2_regs->CCCTL & 0x300) alpha |= 0x80;
+                     switch (SPCCCS) {
+                     case 0:
+                        if (prioritytable[0] <= SPCCN)
+                        {
+                           alpha = colorcalctable[0];
+                           if (vdp2_regs->CCCTL & 0x300) alpha |= 0x80;
+                        }
+                        break;
+                     case 1:
+                        if (prioritytable[0] == SPCCN)
+                        {
+                           alpha = colorcalctable[0];
+                           if (vdp2_regs->CCCTL & 0x300) alpha |= 0x80;
+                        }
+                        break;
+                     case 2:
+                        if (prioritytable[0] >= SPCCN)
+                        {
+                           alpha = colorcalctable[0];
+                           if (vdp2_regs->CCCTL & 0x300) alpha |= 0x80;
+                        }
+                        break;
+                     case 3:
+                        alpha = colorcalctable[0];
+                        if (vdp2_regs->CCCTL & 0x300) alpha |= 0x80;
+                        break;
+                     }
                   }
+
                   // if pixel is 0x8000, only draw pixel if sprite window
                   // is disabled/sprite type 2-7. sprite types 0 and 1 are
                   // -always- drawn and sprite types 8-F are always
@@ -3863,13 +3912,16 @@ void VIDSoftVdp2DrawEnd(void)
       OSDDisplayMessages(dispbuffer, vdp2width, vdp2height);
 
 #ifdef USE_OPENGL	
-   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, vdp2width, vdp2height, 0, GL_RGBA, GL_UNSIGNED_BYTE, dispbuffer);
-   glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-   glClear(GL_COLOR_BUFFER_BIT);
-   glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+   if (VideoUseGL)
+   {
+      glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, vdp2width, vdp2height, 0, GL_RGBA, GL_UNSIGNED_BYTE, dispbuffer);
+      glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+      glClear(GL_COLOR_BUFFER_BIT);
+      glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
-   if (! OSDUseBuffer())
-      OSDDisplayMessages(NULL, -1, -1);
+      if (! OSDUseBuffer())
+         OSDDisplayMessages(NULL, -1, -1);
+   }
 #endif
 
    YuiSwapBuffers();
@@ -4157,12 +4209,22 @@ void VIDSoftVdp1EraseFrameBuffer(Vdp1* regs, u8 * back_framebuffer)
 void VIDSoftGetGlSize(int *width, int *height)
 {
 #ifdef USE_OPENGL
-   *width = outputwidth;
-   *height = outputheight;
-#else
-   *width = vdp2width;
-   *height = vdp2height;
+   int usegl = 0;
+
+   if (VideoUseGL)
+      usegl = 1;
+
+   if (usegl)
+   {
+      *width = outputwidth;
+      *height = outputheight;
+   }
+   else
 #endif
+   {
+      *width = vdp2width;
+      *height = vdp2height;
+   }
 }
 
 void VIDSoftGetNativeResolution(int *width, int *height, int* interlace)

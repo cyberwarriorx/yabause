@@ -24,11 +24,15 @@
 
 @interface YabausePrefsController : NSObject {
     IBOutlet NSTextField *biosPath;
+	IBOutlet NSTextField *sh1Path;
     IBOutlet NSTextField *bramPath;
     IBOutlet NSButton *cartBrowse;
     IBOutlet NSTextField *cartPath;
     IBOutlet NSPopUpButton *cartType;
     IBOutlet NSButton *emulateBios;
+	IBOutlet NSButton *cdbLLE;
+	IBOutlet NSButton *newScsp;
+	IBOutlet NSButton *enableThreads;
     IBOutlet NSTextField *mpegPath;
     IBOutlet NSPopUpButton *region;
     IBOutlet NSPopUpButton *soundCore;
@@ -56,10 +60,14 @@
 - (IBAction)soundCoreSelected:(id)sender;
 - (IBAction)videoCoreSelected:(id)sender;
 - (IBAction)biosBrowse:(id)sender;
+- (IBAction)sh1Browse:(id)sender;
 - (IBAction)mpegBrowse:(id)sender;
 - (IBAction)bramBrowse:(id)sender;
 - (IBAction)cartBrowse:(id)sender;
 - (IBAction)biosToggle:(id)sender;
+- (IBAction)scspToggle:(id)sender;
+- (IBAction)cdbToggle:(id)sender;
+- (IBAction)threadsToggle:(id)sender;
 - (IBAction)buttonSelect:(id)sender;
 
 - (IBAction)buttonSetOk:(id)sender;
@@ -70,7 +78,11 @@
 - (int)soundCore;
 - (int)videoCore;
 - (NSString *)biosPath;
+- (NSString *)sh1Path;
+- (BOOL)cdbLLE;
 - (BOOL)emulateBios;
+- (BOOL)newScsp;
+- (BOOL)enableThreads;
 - (NSString *)mpegPath;
 - (NSString *)bramPath;
 - (NSString *)cartPath;

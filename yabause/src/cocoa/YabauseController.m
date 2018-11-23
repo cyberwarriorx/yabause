@@ -126,7 +126,7 @@ static void FlipToggle(NSMenuItem *item) {
 - (IBAction)runISO:(id)sender
 {
     NSOpenPanel *p = [NSOpenPanel openPanel];
-    NSArray *types = [NSArray arrayWithObjects:@"iso", @"cue", nil];
+    NSArray *types = [NSArray arrayWithObjects:@"iso", @"cue", @"mds", @"ccd", nil];
 
     [p setAllowedFileTypes:types];
     if([p runModal] == NSFileHandlingPanelOKButton) {
@@ -241,7 +241,7 @@ static void FlipToggle(NSMenuItem *item) {
 - (void)startEmulationWithCDCore:(int)cdcore CDPath:(const char *)fn
 {
     if(!_running) {
-        yabauseinit_struct yinit;
+		yabauseinit_struct yinit = {0};
         int initok;
         NSString *bios = [prefs biosPath];
         NSString *mpeg = [prefs mpegPath];
@@ -252,7 +252,7 @@ static void FlipToggle(NSMenuItem *item) {
         yinit.sh2coretype = SH2CORE_DEFAULT;
         yinit.vidcoretype = [prefs videoCore];
         yinit.sndcoretype = [prefs soundCore];
-        yinit.m68kcoretype = M68KCORE_C68K;
+        yinit.m68kcoretype = M68KCORE_MUSASHI;
         yinit.cdcoretype = cdcore;
         yinit.carttype = [prefs cartType];
         yinit.regionid = [prefs region];
@@ -266,7 +266,32 @@ static void FlipToggle(NSMenuItem *item) {
         yinit.frameskip = [frameskip state] == NSOnState;
         yinit.clocksync = 0;
         yinit.basetime = 0;
-        yinit.usethreads = 0;
+		
+		if([prefs enableThreads])
+		{
+			int num_threads = [[NSProcessInfo processInfo] processorCount];
+			
+			if(num_threads > 1)
+			{
+				yinit.usethreads = 1;
+				yinit.numthreads = num_threads;
+			}
+		}
+		
+		NSString *sh1 = [prefs sh1Path];
+		
+		if([prefs cdbLLE] && [sh1 length] > 0)
+		{
+			yinit.sh1rompath = [sh1 UTF8String];
+		
+			yinit.use_cd_block_lle = 1;
+			yinit.use_scu_dma_timing = 1;
+			yinit.use_sh2_dma_timing = 1;
+			yinit.sh2_cache_enabled = 1;
+		}
+		
+		yinit.use_new_scsp = [prefs newScsp];
+		
         yinit.skip_load = 0;
 
         /* Set up the internal save ram if specified. */

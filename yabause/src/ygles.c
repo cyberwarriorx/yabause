@@ -636,6 +636,7 @@ void VIDOGLVdp1ReadFrameBuffer(u32 type, u32 addr, void * out) {
 int YglGLInit(int width, int height) {
    int status;
    GLuint error;
+   const char* extensions;
 
    glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
@@ -695,7 +696,7 @@ int YglGLInit(int width, int height) {
    }
    glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 0);
 
-   if( _Ygl->vdp1FrameBuff != 0 ) glDeleteTextures(2,_Ygl->vdp1FrameBuff);
+   glDeleteTextures(2,_Ygl->vdp1FrameBuff);
    glGenTextures(2,_Ygl->vdp1FrameBuff);
    glBindTexture(GL_TEXTURE_2D,_Ygl->vdp1FrameBuff[0]);
    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, GlWidth, GlHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE,NULL);
@@ -714,7 +715,8 @@ int YglGLInit(int width, int height) {
 
    _Ygl->pFrameBuffer = NULL;
 
-   if( strstr((const char*)glGetString(GL_EXTENSIONS),"packed_depth_stencil") != NULL )
+   extensions = (const char*)glGetString(GL_EXTENSIONS);
+   if( extensions != NULL && strstr(extensions, "packed_depth_stencil") != NULL )
    {
       if( _Ygl->rboid_depth != 0 ) glDeleteRenderbuffers(1,&_Ygl->rboid_depth);
       glGenRenderbuffers(1, &_Ygl->rboid_depth);
@@ -786,6 +788,7 @@ int YglInit(int width, int height, unsigned int depth) {
    unsigned int i,j;
    GLuint status;
    void * dataPointer=NULL;
+   const char* extensions;
 
    YGLLOG("YglInit(%d,%d,%d);",width,height,depth );
 
@@ -856,7 +859,8 @@ int YglInit(int width, int height, unsigned int depth) {
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
-    if( strstr((const char*)glGetString(GL_EXTENSIONS),"packed_depth_stencil") != NULL )
+   extensions = (const char*)glGetString(GL_EXTENSIONS);
+   if( extensions != NULL && strstr(extensions, "packed_depth_stencil") != NULL )
    {
       if( _Ygl->rboid_depth != 0 ) glDeleteRenderbuffers(1,&_Ygl->rboid_depth);
       glGenRenderbuffers(1, &_Ygl->rboid_depth);

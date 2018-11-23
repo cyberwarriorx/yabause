@@ -18,8 +18,8 @@
     <widget class="QTabWidget" name="twPages">
      <property name="font">
       <font>
-       <weight>75</weight>
-       <bold>true</bold>
+       <weight>50</weight>
+       <bold>false</bold>
       </font>
      </property>
      <property name="currentIndex">
@@ -215,7 +215,7 @@
        <item row="2" column="0">
         <widget class="QCheckBox" name="cbEnableBiosEmulation">
          <property name="text">
-          <string>Enable Bios Emulation</string>
+          <string>Enable Built-in HLE Bios</string>
          </property>
         </widget>
        </item>
@@ -428,6 +428,13 @@
         </widget>
        </item>
        <item>
+        <widget class="QCheckBox" name="cbScspDspDynarec">
+         <property name="text">
+          <string>Enable SCSP DSP Dynamic Recompiler</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer>
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -574,6 +581,12 @@
        </item>
        <item row="4" column="0">
         <widget class="QLabel" name="lCartridgeModemPort">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>Port</string>
          </property>
@@ -749,6 +762,12 @@
        </item>
        <item>
         <widget class="QLabel" name="lSH1Interpreter">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>SH1 Interpreter</string>
          </property>
@@ -782,6 +801,13 @@
         <widget class="QCheckBox" name="cbEnableSh2Cache">
          <property name="text">
           <string>Enable Sh2 Cache</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCheckBox" name="cbScuDspDynarec">
+         <property name="text">
+          <string>Enable SCU DSP Dynamic Recompiler</string>
          </property>
         </widget>
        </item>
@@ -1064,8 +1090,8 @@
   </connection>
  </connections>
  <buttongroups>
-  <buttongroup name="bgShowToolbar"/>
   <buttongroup name="bgShowMenubar"/>
+  <buttongroup name="bgShowToolbar"/>
   <buttongroup name="bgShowLogWindow"/>
  </buttongroups>
 </ui>

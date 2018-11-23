@@ -202,12 +202,15 @@ if (YAB_WANT_OPENGL AND (YAB_RGB STREQUAL ""))
 		add_definitions(-DHAVE_LIBGL=1)
 		set(YABAUSE_LIBRARIES ${YABAUSE_LIBRARIES} ${OPENGL_LIBRARIES})
 
-		include(FindGLUT)
-		if (GLUT_FOUND)
-			message (WARNING "Deprecated Glut found. Support will be removed in the future. ")
-			include_directories(${GLUT_INCLUDE_DIR})
-			add_definitions(-DHAVE_LIBGLUT=1)
-			set(YABAUSE_LIBRARIES ${YABAUSE_LIBRARIES} ${GLUT_LIBRARIES})
+		option(YAB_WANT_GLUT "use Glut for OSD" ON)
+		if (YAB_WANT_GLUT)
+			include(FindGLUT)
+			if (GLUT_FOUND)
+				message (WARNING "Deprecated Glut found. Support will be removed in the future. ")
+				include_directories(${GLUT_INCLUDE_DIR})
+				add_definitions(-DHAVE_LIBGLUT=1)
+				set(YABAUSE_LIBRARIES ${YABAUSE_LIBRARIES} ${GLUT_LIBRARIES})
+			endif()
 		endif()
 
 		# glXGetProcAddress
@@ -434,7 +437,7 @@ option(YAB_WANT_ARM7 "Build a binary with arm7 support")
 # SH2 dynamic recompiler
 message(STATUS "CMAKE_SYSTEM_NAME ${CMAKE_SYSTEM_NAME}")
 message(STATUS "CMAKE_SYSTEM_PROCESSOR ${CMAKE_SYSTEM_PROCESSOR}")
-option(SH2_DYNAREC "SH2 dynamic recompiler" ON)
+option(SH2_DYNAREC "SH2 dynamic recompiler" OFF)
 if (SH2_DYNAREC)
 	if("${CMAKE_SYSTEM_NAME}" STREQUAL "Linux")
 		if("${CMAKE_SYSTEM_PROCESSOR}" STREQUAL "i686")
@@ -490,7 +493,7 @@ if (SH2_DYNAREC)
 endif (SH2_DYNAREC)
 
 # c68k
-option(YAB_WANT_C68K "enable c68k compilation" ON)
+option(YAB_WANT_C68K "enable c68k compilation" OFF)
 if (YAB_WANT_C68K)
 	include(ExternalProject)
 	ExternalProject_Add(c68kinc
@@ -624,7 +627,7 @@ endif()
 # Yabause Arch
 if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 	add_definitions(-DARCH_IS_MACOSX=1)
-	set(yabause_SOURCES ${yabause_SOURCES} sock-dummy.c thr-dummy.c)
+	set(yabause_SOURCES ${yabause_SOURCES} sock-dummy.c thr-macosx.c)
 elseif (${CMAKE_SYSTEM_NAME} MATCHES "FreeBSD")
 	add_definitions(-DARCH_IS_FREEBSD=1)
 	set(yabause_SOURCES ${yabause_SOURCES} sock-dummy.c thr-dummy.c cd-freebsd.c)
@@ -705,7 +708,52 @@ endif()
 add_definitions(-DPACKAGE=\"${YAB_PACKAGE}\")
 add_definitions(-DVERSION=\"${YAB_VERSION}\")
 
+include(CheckCXXCompilerFlag)
+if (MSVC)
+    if(NOT (MSVC_VERSION LESS 1800))
+        set(COMPILER_SUPPORTS_CXX11 ON)
+    else()
+        message(STATUS "Not enough C++11 support for dynarecs.")
+    endif()
+elseif(ANDROID)
+    message(STATUS "CodeGen needs exceptions and rtti. Dynarecs disabled.")
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    message(STATUS "CodeGen doesn't build in Clang yet. Dynarecs disabled.")
+else()
+    CHECK_CXX_COMPILER_FLAG(-std=c++11 COMPILER_SUPPORTS_CXX11)
+
+    check_cxx_source_compiles("
+        #include <list>
+        int main() {
+            std::list<int> list;
+            list.erase(list.cbegin());
+        }
+        " CXX11_ERASE_CONST)
+
+    if(NOT CXX11_ERASE_CONST)
+        set(COMPILER_SUPPORTS_CXX11 OFF)
+    endif()
+
+    if(COMPILER_SUPPORTS_CXX11)
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+    else()
+        message(STATUS "The compiler ${CMAKE_CXX_COMPILER} doesn't have enough C++11 support. Dynarecs disabled.")
+    endif()
+endif()
+
+option(YAB_USE_PLAY_JIT "Enable Play codegen and dynarecs." ON)
+if (YAB_USE_PLAY_JIT AND COMPILER_SUPPORTS_CXX11)
+    add_subdirectory(play)
+    add_definitions(-DHAVE_PLAY_JIT=1)
+    set(yabause_SOURCES ${yabause_SOURCES} scsp_dsp_jit.cpp scu_dsp_jit.cpp sh2_jit.cpp)
+    include_directories(play/include)
+endif()
+
 add_library(yabause ${yabause_SOURCES} ${yabause_HEADERS})
+
+if (YAB_USE_PLAY_JIT AND COMPILER_SUPPORTS_CXX11)
+    target_link_libraries(yabause CodeGen)
+endif()
 
 if (YAB_WANT_C68K)
 	add_dependencies(yabause c68kinc)

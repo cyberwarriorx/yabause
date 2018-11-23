@@ -23,6 +23,13 @@
 #include "Settings.h"
 #include "VolatileSettings.h"
 
+#ifdef HAVE_PLAY_JIT
+extern "C"
+{
+#include "../sh2_jit.h"
+}
+#endif
+
 #include <QApplication>
 #include <QLabel>
 #include <QGroupBox>
@@ -39,11 +46,11 @@ extern CDInterface SPTICD;
 extern "C" {
 M68K_struct * M68KCoreList[] = {
 &M68KDummy,
-#ifdef HAVE_C68K
-&M68KC68K,
-#endif
 #ifdef HAVE_MUSASHI
 &M68KMusashi,
+#endif
+#ifdef HAVE_C68K
+&M68KC68K,
 #endif
 NULL
 };
@@ -53,6 +60,9 @@ SH2Interface_struct *SH2CoreList[] = {
 &SH2DebugInterpreter,
 #ifdef SH2_DYNAREC
 &SH2Dynarec,
+#endif
+#ifdef HAVE_PLAY_JIT
+&SH2Jit,
 #endif
 NULL
 };
@@ -454,10 +464,10 @@ PerInterface_struct QtYabause::defaultPERCore()
 
 M68K_struct QtYabause::default68kCore()
 {
-#ifdef HAVE_C68K
+#ifdef HAVE_MUSASHI
+return M68KMusashi;
+#elif HAVE_C68K
    return M68KC68K;
-#elif HAVE_MUSASHI
-   return M68KMusashi;
 #else
    return M68KDummy;
 #endif
