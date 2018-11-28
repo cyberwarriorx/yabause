@@ -1,0 +1,3 @@
+-o
+../../ui/moc_UIGunSetting.cpp
+../../ui/UIGunSetting.h

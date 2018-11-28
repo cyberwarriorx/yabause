@@ -1,0 +1,7 @@
+-Get rid of anything that isn't still being used or is useful. The code needs to be more lean and mean.
+-Trim out any non-windows code
+-Decide on -one- 68k interpreter
+-Decide on -one- jit sh2 core
+-Perhaps look into converting some aspects of the cores system to plugins
+-Add palette editor
+-Try some experimentations

@@ -1,0 +1,3 @@
+-o
+../../ui/moc_UIMouseSetting.cpp
+../../ui/UIMouseSetting.h

@@ -1,0 +1,3 @@
+-o
+../../ui/moc_UIDebugM68K.cpp
+../../ui/UIDebugM68K.h

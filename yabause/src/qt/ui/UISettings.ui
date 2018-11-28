@@ -23,7 +23,7 @@
       </font>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>5</number>
      </property>
      <widget class="QWidget" name="wGeneral">
       <attribute name="title">
@@ -778,6 +778,11 @@
        </item>
        <item>
         <widget class="QCheckBox" name="cbEnableCDBlockLLE">
+         <property name="font">
+          <font>
+           <strikeout>true</strikeout>
+          </font>
+         </property>
          <property name="text">
           <string>Enable CD Block Low-level Emulation</string>
          </property>
@@ -785,6 +790,11 @@
        </item>
        <item>
         <widget class="QCheckBox" name="cbEnableSh2DmaTiming">
+         <property name="font">
+          <font>
+           <strikeout>true</strikeout>
+          </font>
+         </property>
          <property name="text">
           <string>Enable Sh2 Dma Timing</string>
          </property>
@@ -792,6 +802,11 @@
        </item>
        <item>
         <widget class="QCheckBox" name="cbEnableScuDmaTiming">
+         <property name="font">
+          <font>
+           <strikeout>true</strikeout>
+          </font>
+         </property>
          <property name="text">
           <string>Enable Scu Dma Timing</string>
          </property>
@@ -799,6 +814,11 @@
        </item>
        <item>
         <widget class="QCheckBox" name="cbEnableSh2Cache">
+         <property name="font">
+          <font>
+           <strikeout>true</strikeout>
+          </font>
+         </property>
          <property name="text">
           <string>Enable Sh2 Cache</string>
          </property>
@@ -806,6 +826,11 @@
        </item>
        <item>
         <widget class="QCheckBox" name="cbScuDspDynarec">
+         <property name="font">
+          <font>
+           <strikeout>true</strikeout>
+          </font>
+         </property>
          <property name="text">
           <string>Enable SCU DSP Dynamic Recompiler</string>
          </property>
@@ -813,6 +838,11 @@
        </item>
        <item>
         <widget class="QLabel" name="label_3">
+         <property name="font">
+          <font>
+           <strikeout>true</strikeout>
+          </font>
+         </property>
          <property name="text">
           <string>(CD Block LLE requires cdb105.bin, a real BIOS, and no dynamic recompilers. Sh2 Dma Timing, Scu Dma Timing and Sh2 Cache must also be enabled)</string>
          </property>

@@ -45,7 +45,6 @@
 #include "vdp2.h"
 #include "yabause.h"
 #include "yui.h"
-#include "movie.h"
 #include "sh7034.h"
 #include "ygr.h"
 
@@ -1133,7 +1132,7 @@ int MappedMemoryLoad(SH2_struct *sh, const char *filename, u32 addr)
    FILE *fp;
    long filesize;
    u8 *buffer;
-   u32 i;
+   long i;
    size_t num_read = 0;
 
    if (!filename)
@@ -1336,11 +1335,6 @@ int YabSaveState(const char *filename)
    FILE *fp;
    int status;
 
-   //use a second set of savestates for movies
-   filename = MakeMovieStateName(filename);
-   if (!filename)
-      return -1;
-
    if ((fp = fopen(filename, "wb")) == NULL)
       return -1;
 
@@ -1374,7 +1368,6 @@ int YabSaveStateStream(FILE *fp)
    int totalsize;
    int outputwidth;
    int outputheight;
-   int movieposition;
    int temp;
    u32 temp32;
 
@@ -1400,10 +1393,10 @@ int YabSaveStateStream(FILE *fp)
    ywrite(&check, (void *)&i, sizeof(i), 1, fp);
 
    //write frame number
-   ywrite(&check, (void *)&framecounter, 4, 1, fp);
+   ywrite(&check, (void *)&i, 4, 1, fp);
 
    //this will be updated with the movie position later
-   ywrite(&check, (void *)&framecounter, 4, 1, fp);
+   ywrite(&check, (void *)&i, 4, 1, fp);
 
    // Go through each area and write each state
    i += CartSaveState(fp);
@@ -1460,17 +1453,12 @@ int YabSaveStateStream(FILE *fp)
 
    ywrite(&check, (void *)buf, totalsize, 1, fp);
 
-   movieposition=ftell(fp);
-   //write the movie to the end of the savestate
-   SaveMovieInState(fp, check);
-
    i += StateFinishHeader(fp, offset);
 
    // Go back and update size
    fseek(fp, 8, SEEK_SET);
    ywrite(&check, (void *)&i, sizeof(i), 1, fp);
    fseek(fp, 16, SEEK_SET);
-   ywrite(&check, (void *)&movieposition, sizeof(movieposition), 1, fp);
 
    free(buf);
 
@@ -1504,10 +1492,6 @@ int YabLoadState(const char *filename)
    FILE *fp;
    int status;
 
-   filename = MakeMovieStateName(filename);
-   if (!filename)
-      return -1;
-
    if ((fp = fopen(filename, "rb")) == NULL)
       return -1;
 
@@ -1531,7 +1515,6 @@ int YabLoadStateStream(FILE *fp)
    int outputheight;
    int curroutputwidth;
    int curroutputheight;
-   int movieposition;
    int temp;
    u32 temp32;
 	int test_endian;
@@ -1559,9 +1542,10 @@ int YabLoadStateStream(FILE *fp)
          break;
       case 2:
          /* version 2 adds video recording */
-         yread(&check, (void *)&framecounter, 4, 1, fp);
-		 movieposition=ftell(fp);
-		 yread(&check, (void *)&movieposition, 4, 1, fp);
+			u32 dummy;
+         yread(&check, (void *)&dummy, 4, 1, fp);
+		 dummy=ftell(fp);
+		 yread(&check, (void *)&dummy, 4, 1, fp);
          headersize = 0x14;
          break;
       default:
@@ -1721,9 +1705,6 @@ int YabLoadStateStream(FILE *fp)
    #endif
    YuiSwapBuffers();
    free(buf);
-
-   fseek(fp, movieposition, SEEK_SET);
-   MovieReadState(fp);
    }
 
    ScspUnMuteAudio(SCSP_MUTE_SYSTEM);

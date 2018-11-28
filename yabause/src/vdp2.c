@@ -31,7 +31,6 @@
 #include "smpc.h"
 #include "vdp1.h"
 #include "yabause.h"
-#include "movie.h"
 #include "osdcore.h"
 
 u8 * Vdp2Ram;
@@ -386,7 +385,6 @@ static void FPSDisplay(void)
    static u64 fpsticks;
 
    OSDPushMessage(OSDMSG_FPS, 1, "%02d/%02d FPS", fps, yabsys.IsPal ? 50 : 60);
-   OSDPushMessage(OSDMSG_DEBUG, 1, "%d %d %s %s", framecounter, lagframecounter, MovieStatus, InputDisplayString);
    fpsframecount++;
    if(YabauseGetTicks() >= fpsticks + yabsys.tickfreq)
    {
@@ -481,7 +479,7 @@ void Vdp2VBlankOUT(void) {
          framestoskip = 6;
    }
    //when in frame advance, disable frame skipping
-   else if (autoframeskipenab && FrameAdvanceVariable == 0)
+   else if (autoframeskipenab)
    {
       framecount++;
 

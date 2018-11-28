@@ -1,0 +1,3 @@
+-o
+../../ui/moc_UIMemorySearch.cpp
+../../ui/UIMemorySearch.h

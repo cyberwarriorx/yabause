@@ -305,7 +305,9 @@ static INLINE int StateCheckRetrieveHeader(FILE *fp, const char *name, int *vers
 
 #else
 
+#ifndef UNUSED
 #define UNUSED
+#endif
 #define USED_IF_DEBUG
 #define USED_IF_SMPC_DEBUG
 #define LIKELY(x) (x)

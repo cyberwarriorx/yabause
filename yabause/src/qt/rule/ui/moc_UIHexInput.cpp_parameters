@@ -1,0 +1,3 @@
+-o
+../../ui/moc_UIHexInput.cpp
+../../ui/UIHexInput.h

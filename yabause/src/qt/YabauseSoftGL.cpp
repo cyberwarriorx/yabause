@@ -20,7 +20,7 @@
 */
 #include "YabauseSoftGL.h"
 #include "QtYabause.h"
-#include "../vidsoft.h"
+#include "vidsoft.h"
 
 #include <QPainter>
 

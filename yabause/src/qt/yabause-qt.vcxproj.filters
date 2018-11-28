@@ -1,0 +1,556 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\qt">
+      <UniqueIdentifier>{61b43759-1d08-4963-9ff1-a5283ceeffcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UI Files">
+      <UniqueIdentifier>{8b6010bb-f898-4e9a-b8bd-b850b119c03f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rules">
+      <UniqueIdentifier>{9b3c4fe1-8360-4336-be2b-9a736d31a861}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rules\ui">
+      <UniqueIdentifier>{499affdb-b099-4ee5-8b46-0a8024f47b19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ui">
+      <UniqueIdentifier>{02c4f4b5-2629-422f-91b5-ae4c1d26a212}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\moc">
+      <UniqueIdentifier>{2645d7bd-e97b-4aa2-98f2-f168b14253f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\moc\ui">
+      <UniqueIdentifier>{83e31a8d-68b7-4a12-bfe1-14e73c13fff0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Arguments.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonDialogs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PerQt.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="QtYabause.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Settings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VolatileSettings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="YabauseGL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="YabauseGLProxy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="YabauseSoftGL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="YabauseThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UI3DControlPadSetting.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIAbout.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIBackupRam.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UICheatAR.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UICheatRaw.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UICheats.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UICheatSearch.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIControllerSetting.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIDebugCPU.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIDebugM68K.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIDebugSCSP.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIDebugSCSPChan.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIDebugSCSPDSP.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIDebugSCUDSP.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIDebugSH2.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIDebugVDP1.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIDebugVDP2.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIDebugVDP2Viewer.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIDisasm.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIDoubleMissionStickSetting.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIGunSetting.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIHexEditor.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIHexInput.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIMemoryEditor.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIMemorySearch.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIMemoryTransfer.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIMissionStickSetting.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIMouseSetting.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIPadSetting.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIPortManager.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UISettings.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIShortcutManager.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UITwinStickSetting.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIWheelSetting.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\UIYabause.cpp">
+      <Filter>Source Files\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UI3DControlPadSetting.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIAbout.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIBackupRam.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UICheatAR.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UICheatRaw.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UICheats.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UICheatSearch.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIControllerSetting.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIDebugCPU.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIDebugM68K.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIDebugSCSP.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIDebugSCSPChan.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIDebugSCSPDSP.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIDebugSCUDSP.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIDebugSH2.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIDebugVDP1.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIDebugVDP2.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIDebugVDP2Viewer.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIDisasm.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIDoubleMissionStickSetting.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIGunSetting.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIHexEditor.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIHexInput.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIMemoryEditor.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIMemorySearch.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIMemoryTransfer.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIMissionStickSetting.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIMouseSetting.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIPadSetting.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIPortManager.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UISettings.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIShortcutManager.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UITwinStickSetting.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIWheelSetting.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\moc_UIYabause.cpp">
+      <Filter>Source Files\moc\ui</Filter>
+    </ClCompile>
+    <ClCompile Include="moc_Settings.cpp">
+      <Filter>Source Files\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="moc_VolatileSettings.cpp">
+      <Filter>Source Files\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="moc_YabauseGL.cpp">
+      <Filter>Source Files\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="moc_YabauseGLProxy.cpp">
+      <Filter>Source Files\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="moc_YabauseSoftGL.cpp">
+      <Filter>Source Files\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="moc_YabauseThread.cpp">
+      <Filter>Source Files\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qrc_resources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Arguments.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonDialogs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PerQt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="QtYabause.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Settings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VolatileSettings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="YabauseGL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="YabauseGLProxy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="YabauseSoftGL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="YabauseThread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="logo.bmp">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="logo.ico">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="logo.png">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="rule\moc_Settings.cpp.rule">
+      <Filter>rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\moc_VolatileSettings.cpp.rule">
+      <Filter>rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\moc_YabauseGL.cpp.rule">
+      <Filter>rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\moc_YabauseGLProxy.cpp.rule">
+      <Filter>rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\moc_YabauseSoftGL.cpp.rule">
+      <Filter>rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\moc_YabauseThread.cpp.rule">
+      <Filter>rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UI3DControlPadSetting.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIAbout.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIBackupRam.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UICheatAR.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UICheatRaw.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UICheats.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UICheatSearch.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIControllerSetting.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIDebugCPU.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIDebugM68K.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIDebugSCSP.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIDebugSCSPChan.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIDebugSCSPDSP.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIDebugSCUDSP.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIDebugSH2.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIDebugVDP1.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIDebugVDP2.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIDebugVDP2Viewer.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIDisasm.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIDoubleMissionStickSetting.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIGunSetting.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIHexEditor.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIHexInput.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIMemoryEditor.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIMemorySearch.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIMemoryTransfer.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIMissionStickSetting.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIMouseSetting.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIPadSetting.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIPortManager.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UISettings.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIShortcutManager.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UITwinStickSetting.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIWheelSetting.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="rule\ui\moc_UIYabause.cpp.rule">
+      <Filter>rules\ui</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UI3DControlPadSetting.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIAbout.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIBackupRam.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UICheatAR.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UICheatRaw.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UICheats.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UICheatSearch.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIDebugCPU.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIDebugSCSP.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIDebugSCSPDSP.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIDebugVDP1.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIDebugVDP2.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIDebugVDP2Viewer.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIDoubleMissionStickSetting.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIGunSetting.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIHexInput.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIMemoryEditor.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIMemorySearch.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIMemoryTransfer.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIMissionStickSetting.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIMouseSetting.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIPadSetting.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIPortManager.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UISettings.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UITwinStickSetting.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIWheelSetting.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ui\UIYabause.ui">
+      <Filter>UI Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="resources\resources.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

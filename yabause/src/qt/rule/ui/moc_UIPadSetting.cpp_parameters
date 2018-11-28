@@ -1,0 +1,3 @@
+-o
+../../ui/moc_UIPadSetting.cpp
+../../ui/UIPadSetting.h

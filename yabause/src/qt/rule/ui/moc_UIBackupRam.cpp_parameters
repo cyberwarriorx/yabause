@@ -1,0 +1,3 @@
+-o
+../../ui/moc_UIBackupRam.cpp
+../../ui/UIBackupRam.h

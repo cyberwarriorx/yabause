@@ -34,7 +34,6 @@
 #include "vdp1.h"
 #include "vdp2.h"
 #include "yabause.h"
-#include "movie.h"
 
 #ifdef _arch_dreamcast
 # include "dreamcast/localtime.h"
@@ -62,7 +61,7 @@ int SmpcInit(u8 regionid, int clocksync, u32 basetime) {
    SmpcInternalVars->regionsetting = regionid;
    SmpcInternalVars->regionid = regionid;
    SmpcInternalVars->clocksync = clocksync;
-   SmpcInternalVars->basetime = basetime ? basetime : time(NULL);
+   SmpcInternalVars->basetime = basetime ? basetime : (u32)time(NULL);
 
    return 0;
 }
@@ -226,11 +225,11 @@ static void SmpcINTBACKStatus(void) {
    //SmpcRegs->OREG[0] = 0x0 | (SmpcInternalVars->resd << 6);  // goto setclock/setlanguage screen
     
    // write time data in OREG1-7
-   if (SmpcInternalVars->clocksync) {
-      tmp = SmpcInternalVars->basetime + ((u64)framecounter * 1001 / 60000);
-   } else {
+   //if (SmpcInternalVars->clocksync) {
+   //   tmp = SmpcInternalVars->basetime + ((u64)framecounter * 1001 / 60000); // used by movie recording - it needs to go
+   //} else {
       tmp = time(NULL);
-   }
+   //}
 #ifdef WIN32
    memcpy(&times, localtime(&tmp), sizeof(times));
 #elif defined(_arch_dreamcast) || defined(PSP)
@@ -249,34 +248,6 @@ static void SmpcINTBACKStatus(void) {
    SmpcRegs->OREG[5] = ((times.tm_hour / 10) << 4) | (times.tm_hour % 10);
    SmpcRegs->OREG[6] = ((times.tm_min / 10) << 4) | (times.tm_min % 10);
    SmpcRegs->OREG[7] = ((times.tm_sec / 10) << 4) | (times.tm_sec % 10);
-
-   if(Movie.Status == Recording || Movie.Status == Playback) {
-	   movietime.tm_year=0x62;
-	   movietime.tm_wday=0x04;
-	   movietime.tm_mday=0x01;
-	   movietime.tm_mon=0;
-	   totalseconds = ((framecounter / 60) + noon);
-
-	   movietime.tm_sec=totalseconds % 60;
-	   movietime.tm_min=totalseconds/60;
-	   movietime.tm_hour=movietime.tm_min/60;
-
-	   //convert to sane numbers
-	   movietime.tm_min=movietime.tm_min % 60;
-	   movietime.tm_hour=movietime.tm_hour % 24;
-
-	   year[0] = (1900 + movietime.tm_year) / 1000;
-	   year[1] = ((1900 + movietime.tm_year) % 1000) / 100;
-	   year[2] = (((1900 + movietime.tm_year) % 1000) % 100) / 10;
-	   year[3] = (((1900 + movietime.tm_year) % 1000) % 100) % 10;
-	   SmpcRegs->OREG[1] = (year[0] << 4) | year[1];
-	   SmpcRegs->OREG[2] = (year[2] << 4) | year[3];
-	   SmpcRegs->OREG[3] = (movietime.tm_wday << 4) | (movietime.tm_mon + 1);
-	   SmpcRegs->OREG[4] = ((movietime.tm_mday / 10) << 4) | (movietime.tm_mday % 10);
-	   SmpcRegs->OREG[5] = ((movietime.tm_hour / 10) << 4) | (movietime.tm_hour % 10);
-	   SmpcRegs->OREG[6] = ((movietime.tm_min / 10) << 4) | (movietime.tm_min % 10);
-	   SmpcRegs->OREG[7] = ((movietime.tm_sec / 10) << 4) | (movietime.tm_sec % 10);
-   }
 
    // write cartidge data in OREG8
    SmpcRegs->OREG[8] = 0; // FIXME : random value
@@ -376,7 +347,6 @@ static void SmpcINTBACKPeripheral(void) {
      PerFlush(&PORTDATA2);
      SmpcInternalVars->port1.offset = 0;
      SmpcInternalVars->port2.offset = 0;
-     LagFrameFlag=0;
   }
 
   // Port 1

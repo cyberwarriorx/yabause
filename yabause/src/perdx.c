@@ -38,7 +38,6 @@
 #include "vdp1.h"
 #include "vdp2.h"
 #include "yui.h"
-#include "movie.h"
 #include "error.h"
 
 enum {

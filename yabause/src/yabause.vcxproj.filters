@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\qt">
+      <UniqueIdentifier>{61b43759-1d08-4963-9ff1-a5283ceeffcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\tsunami">
+      <UniqueIdentifier>{505fbf9e-b64b-4839-b914-21e94affdb0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\tsunami">
+      <UniqueIdentifier>{5a5d778e-05ca-4f21-97c2-4459420facf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\musashi">
+      <UniqueIdentifier>{c79a578d-fc64-4e08-b8de-61ba3d2e0bdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\carts">
+      <UniqueIdentifier>{a613616d-c7e4-4e0e-900e-0173bd92245f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\68k cores">
+      <UniqueIdentifier>{3fa2e4a1-c25e-426e-86b1-626cf5de6b09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\68k cores\musashi">
+      <UniqueIdentifier>{2ce437cb-5382-49a3-b898-64638fd7da7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\cdb">
+      <UniqueIdentifier>{efe72ed6-7130-49f9-86d7-5140b25ecc55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\cdb\lle">
+      <UniqueIdentifier>{7d91b962-f048-4199-bf9d-a70fa1853857}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\socket">
+      <UniqueIdentifier>{89c71493-1501-4339-be92-d96aa12abbf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\video">
+      <UniqueIdentifier>{d1d7c1a7-452a-4b24-b524-d2a530e1f788}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\video\cores">
+      <UniqueIdentifier>{57f6e07a-5e40-43d4-a963-9816eba7f722}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\video\ygl">
+      <UniqueIdentifier>{77615cb1-d754-4624-b8a9-08cc4038b783}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\scsp">
+      <UniqueIdentifier>{b35f6f31-8ade-491d-ae3a-8c179c9be6d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sh2">
+      <UniqueIdentifier>{9c99a314-5848-42cc-8b7e-7952d4a8462b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sound">
+      <UniqueIdentifier>{bbbce9ac-a3ca-4038-81bd-87dd10c01217}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\video\gllibs">
+      <UniqueIdentifier>{00fce4d1-4d60-43ec-9808-4b19ab81dc1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\scu">
+      <UniqueIdentifier>{53c8f23d-fbf5-4bde-9a2d-7f746659d0c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\threads">
+      <UniqueIdentifier>{bcc1f50b-4c10-4c1e-bb83-e226add9a9b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\video\titan">
+      <UniqueIdentifier>{f5f16620-b74d-45bb-ae71-534544a25318}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="bios.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cdbase.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cd-windows.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="coffelf.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cs0.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cs1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cs2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="debug.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="error.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gameinfo.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="memory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="perdx.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="peripheral.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="profile.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="smpc.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vdp1.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vdp2.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vdp2debug.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="yabause.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tsunami\Tsunami.c">
+      <Filter>Source Files\tsunami</Filter>
+    </ClCompile>
+    <ClCompile Include="tsunami\yab_tsunami.c">
+      <Filter>Source Files\tsunami</Filter>
+    </ClCompile>
+    <ClCompile Include="cdb\lle\cd_drive.c">
+      <Filter>Source Files\cdb\lle</Filter>
+    </ClCompile>
+    <ClCompile Include="cdb\lle\mpeg_card.c">
+      <Filter>Source Files\cdb\lle</Filter>
+    </ClCompile>
+    <ClCompile Include="cdb\lle\sh7034.c">
+      <Filter>Source Files\cdb\lle</Filter>
+    </ClCompile>
+    <ClCompile Include="cdb\lle\ygr.c">
+      <Filter>Source Files\cdb\lle</Filter>
+    </ClCompile>
+    <ClCompile Include="carts\japmodem.c">
+      <Filter>Source Files\carts</Filter>
+    </ClCompile>
+    <ClCompile Include="carts\netlink.c">
+      <Filter>Source Files\carts</Filter>
+    </ClCompile>
+    <ClCompile Include="socket\sock-windows.c">
+      <Filter>Source Files\socket</Filter>
+    </ClCompile>
+    <ClCompile Include="video\cores\vidogl.c">
+      <Filter>Source Files\video\cores</Filter>
+    </ClCompile>
+    <ClCompile Include="video\cores\vidshared.c">
+      <Filter>Source Files\video\cores</Filter>
+    </ClCompile>
+    <ClCompile Include="video\cores\vidsoft.c">
+      <Filter>Source Files\video\cores</Filter>
+    </ClCompile>
+    <ClCompile Include="video\ygl\yglcache.c">
+      <Filter>Source Files\video\ygl</Filter>
+    </ClCompile>
+    <ClCompile Include="video\ygl\yglcache.cpp">
+      <Filter>Source Files\video\ygl</Filter>
+    </ClCompile>
+    <ClCompile Include="video\ygl\ygles.c">
+      <Filter>Source Files\video\ygl</Filter>
+    </ClCompile>
+    <ClCompile Include="video\ygl\yglshaderes.c">
+      <Filter>Source Files\video\ygl</Filter>
+    </ClCompile>
+    <ClCompile Include="scsp\scsp.c">
+      <Filter>Source Files\scsp</Filter>
+    </ClCompile>
+    <ClCompile Include="scsp\scspdsp.c">
+      <Filter>Source Files\scsp</Filter>
+    </ClCompile>
+    <ClCompile Include="video\osdcore.c">
+      <Filter>Source Files\video</Filter>
+    </ClCompile>
+    <ClCompile Include="sh2\sh2cache.c">
+      <Filter>Source Files\sh2</Filter>
+    </ClCompile>
+    <ClCompile Include="sh2\sh2core.c">
+      <Filter>Source Files\sh2</Filter>
+    </ClCompile>
+    <ClCompile Include="sh2\sh2d.c">
+      <Filter>Source Files\sh2</Filter>
+    </ClCompile>
+    <ClCompile Include="sh2\sh2iasm.c">
+      <Filter>Source Files\sh2</Filter>
+    </ClCompile>
+    <ClCompile Include="sh2\sh2idle.c">
+      <Filter>Source Files\sh2</Filter>
+    </ClCompile>
+    <ClCompile Include="sh2\sh2int.c">
+      <Filter>Source Files\sh2</Filter>
+    </ClCompile>
+    <ClCompile Include="sh2\sh2trace.c">
+      <Filter>Source Files\sh2</Filter>
+    </ClCompile>
+    <ClCompile Include="sound\snddummy.c">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="sound\snddx.c">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="sound\sndwav.c">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="video\gllibs\glew\glew.c">
+      <Filter>Source Files\video\gllibs</Filter>
+    </ClCompile>
+    <ClCompile Include="68k\m68kc68k.c">
+      <Filter>Source Files\68k cores</Filter>
+    </ClCompile>
+    <ClCompile Include="68k\m68kcore.c">
+      <Filter>Source Files\68k cores</Filter>
+    </ClCompile>
+    <ClCompile Include="68k\m68kd.c">
+      <Filter>Source Files\68k cores</Filter>
+    </ClCompile>
+    <ClCompile Include="68k\m68kq68.c">
+      <Filter>Source Files\68k cores</Filter>
+    </ClCompile>
+    <ClCompile Include="68k\musashi\m68kcpu.c">
+      <Filter>Source Files\68k cores\musashi</Filter>
+    </ClCompile>
+    <ClCompile Include="68k\musashi\m68kdasm.c">
+      <Filter>Source Files\68k cores\musashi</Filter>
+    </ClCompile>
+    <ClCompile Include="68k\musashi\m68kopac.c">
+      <Filter>Source Files\68k cores\musashi</Filter>
+    </ClCompile>
+    <ClCompile Include="68k\musashi\m68kopdm.c">
+      <Filter>Source Files\68k cores\musashi</Filter>
+    </ClCompile>
+    <ClCompile Include="68k\musashi\m68kopnz.c">
+      <Filter>Source Files\68k cores\musashi</Filter>
+    </ClCompile>
+    <ClCompile Include="68k\musashi\m68kops.c">
+      <Filter>Source Files\68k cores\musashi</Filter>
+    </ClCompile>
+    <ClCompile Include="scu\scu.c">
+      <Filter>Source Files\scu</Filter>
+    </ClCompile>
+    <ClCompile Include="threads\thr-windows.c">
+      <Filter>Source Files\threads</Filter>
+    </ClCompile>
+    <ClCompile Include="video\titan\titan.c">
+      <Filter>Source Files\video\titan</Filter>
+    </ClCompile>
+    <ClCompile Include="68k\m68kmusashi.c">
+      <Filter>Source Files\68k cores</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bios.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cd_drive.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cdbase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="coffelf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cs0.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cs1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cs2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="error.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="fakeddk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gameinfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="japmodem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="glext.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m68kc68k.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m68kcore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m68kd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="m68kmusashi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="yui.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ygl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="yabause.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vidsoft.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vidshared.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vidogl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vdp2debug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vdp2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vdp1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="threads.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="snddx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sndal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="smpc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sh7034.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sh2trace.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sh2int.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sh2idle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sh2iasm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sh2d.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sh2core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sh2cache.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sh2_jit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sh-opc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scu_dsp_jit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scspdsp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scsp_dsp_jit.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scsp2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="scsp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="screen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="profile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="peripheral.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="perdx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="osdcore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="netlink.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mpeg_card.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="movie.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="memory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\Arguments.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\CommonDialogs.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\PerQt.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\QtYabause.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\Settings.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\VolatileSettings.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\YabauseGL.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\YabauseGLProxy.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\YabauseSoftGL.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\YabauseThread.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="tsunami\Tsunami.h">
+      <Filter>Header Files\tsunami</Filter>
+    </ClInclude>
+    <ClInclude Include="tsunami\TsunamiPrivate.h">
+      <Filter>Header Files\tsunami</Filter>
+    </ClInclude>
+    <ClInclude Include="tsunami\yab_tsunami.h">
+      <Filter>Header Files\tsunami</Filter>
+    </ClInclude>
+    <ClInclude Include="musashi\m68kconf.h">
+      <Filter>Header Files\musashi</Filter>
+    </ClInclude>
+    <ClInclude Include="musashi\m68kcpu.h">
+      <Filter>Header Files\musashi</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

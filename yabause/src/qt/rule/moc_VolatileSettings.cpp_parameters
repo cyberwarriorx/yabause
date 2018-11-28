@@ -1,0 +1,3 @@
+-o
+../moc_VolatileSettings.cpp
+../VolatileSettings.h

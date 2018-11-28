@@ -1,0 +1,3 @@
+-o
+../../ui/moc_UISettings.cpp
+../../ui/UISettings.h

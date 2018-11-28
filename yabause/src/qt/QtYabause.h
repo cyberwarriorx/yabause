@@ -26,53 +26,53 @@ extern "C"
 #ifdef Q_OS_WIN
 #include <qt_windows.h>
 #endif
-	#include "../yabause.h"
-	#include "../peripheral.h"
-	#include "../sh2core.h"
-	#include "../sh2int.h"
-	#include "../vidogl.h"
-	#include "../vidsoft.h"
-	#include "../cs0.h"
-	#include "../cdbase.h"
-	#include "../scsp.h"
-	#include "../scspdsp.h"
-	#include "../scu.h"
-	#include "../sndal.h"
+	#include "yabause.h"
+	#include "peripheral.h"
+	#include "sh2core.h"
+	#include "sh2int.h"
+	#include "vidogl.h"
+	#include "vidsoft.h"
+	#include "cs0.h"
+	#include "cdbase.h"
+	#include "scsp.h"
+	#include "scspdsp.h"
+	#include "scu.h"
+	#include "sndal.h"
 #ifdef HAVE_DIRECTSOUND
-	#include "../snddx.h"
+	#include "snddx.h"
 #endif
-	#include "../sndsdl.h"
+	#include "sndsdl.h"
 #if HAVE_DIRECTINPUT
-	#include "../perdx.h"
+	#include "perdx.h"
 #endif
-	#include "../persdljoy.h"
-	#include "../permacjoy.h"
-	#include "../perlinuxjoy.h"
-	#include "../debug.h"
-	#include "../m68kcore.h"
-	#include "../m68kc68k.h"
+	#include "persdljoy.h"
+	//#include "permacjoy.h"
+	//#include "perlinuxjoy.h"
+	#include "debug.h"
+	#include "m68kcore.h"
+	#include "m68kc68k.h"
 
-	#include "../vdp1.h"
-	#include "../vdp2.h"
-	#include "../cs2.h"
+	#include "vdp1.h"
+	#include "vdp2.h"
+	#include "cs2.h"
 
-	#include "../cheat.h"
-	#include "../memory.h"
-	#include "../bios.h"
+	#include "cheat.h"
+	#include "memory.h"
+	#include "bios.h"
 
-	#include "../m68kd.h"
-	#include "../sh2d.h"
-	#include "../sh2iasm.h"
-	#include "../vdp2debug.h"
+	#include "m68kd.h"
+	#include "sh2d.h"
+	#include "sh2iasm.h"
+	#include "vdp2debug.h"
 
 	#include "PerQt.h"
 
 #ifdef ARCH_IS_MACOSX
-    #include "../sndmac.h"
+    #include "sndmac.h"
 #endif
 
 #ifdef SH2_TRACE
-	#include "../sh2trace.h"
+	#include "sh2trace.h"
 #endif
 }
 

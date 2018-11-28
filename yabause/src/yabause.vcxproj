@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B07E7AE1-6EB5-4909-8BE6-A505FF92AFD6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>yabause</RootNamespace>
+    <ProjectName>yabause</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\qt\Qt5.11.2\5.11.2\msvc2015\include;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtCore;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtGui;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtOpenGL;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtWidgets;$(ProjectDir);$(ProjectDir)68k;$(ProjectDir)carts;$(ProjectDir)cdb\lle;$(ProjectDir)scsp;$(ProjectDir)scu;$(ProjectDir)sh2;$(ProjectDir)sh2\jit;$(ProjectDir)socket;$(ProjectDir)gllibs\include;$(ProjectDir)threads;$(ProjectDir)video;$(ProjectDir)video\cores;$(ProjectDir)video\gllibs\include;$(ProjectDir)video\ygl;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\qt\Qt5.11.2\5.11.2\msvc2015\lib;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>C:\qt\Qt5.11.2\5.11.2\msvc2015\bin;$(ExecutablePath)</ExecutablePath>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\qt\Qt5.11.2\5.11.2\msvc2015\include;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtCore;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtGui;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtOpenGL;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtWidgets;$(ProjectDir);$(ProjectDir)68k;$(ProjectDir)carts;$(ProjectDir)cdb\lle;$(ProjectDir)scsp;$(ProjectDir)scu;$(ProjectDir)sh2;$(ProjectDir)sh2\jit;$(ProjectDir)socket;$(ProjectDir)gllibs\include;$(ProjectDir)threads;$(ProjectDir)video;$(ProjectDir)video\cores;$(ProjectDir)video\gllibs\include;$(ProjectDir)video\ygl;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;C:\qt\Qt5.11.2\5.11.2\msvc2015_64\lib;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>C:\qt\Qt5.11.2\5.11.2\msvc2015_64\bin;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\qt\Qt5.11.2\5.11.2\msvc2015\include;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtCore;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtGui;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtOpenGL;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtWidgets;$(ProjectDir);$(ProjectDir)68k;$(ProjectDir)carts;$(ProjectDir)cdb\lle;$(ProjectDir)scsp;$(ProjectDir)scu;$(ProjectDir)sh2;$(ProjectDir)sh2\jit;$(ProjectDir)socket;$(ProjectDir)gllibs\include;$(ProjectDir)threads;$(ProjectDir)video;$(ProjectDir)video\cores;$(ProjectDir)video\gllibs\include;$(ProjectDir)video\ygl;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x86;C:\qt\Qt5.11.2\5.11.2\msvc2015\lib;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>C:\qt\Qt5.11.2\5.11.2\msvc2015\bin;$(ExecutablePath)</ExecutablePath>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;C:\qt\Qt5.11.2\5.11.2\msvc2015\include;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtCore;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtGui;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtOpenGL;C:\qt\Qt5.11.2\5.11.2\msvc2015\include\QtWidgets;$(ProjectDir);$(ProjectDir)68k;$(ProjectDir)carts;$(ProjectDir)cdb\lle;$(ProjectDir)scsp;$(ProjectDir)scu;$(ProjectDir)sh2;$(ProjectDir)sh2\jit;$(ProjectDir)socket;$(ProjectDir)gllibs\include;$(ProjectDir)threads;$(ProjectDir)video;$(ProjectDir)video\cores;$(ProjectDir)video\gllibs\include;$(ProjectDir)video\ygl;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Lib\x64;C:\qt\Qt5.11.2\5.11.2\msvc2015_64\lib;$(LibraryPath)</LibraryPath>
+    <ExecutablePath>C:\qt\Qt5.11.2\5.11.2\msvc2015_64\bin;$(ExecutablePath)</ExecutablePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;HAVE_C99_VARIADIC_MACROS;HAVE_DIRECTINPUT=1;HAVE_DIRECTSOUND=1;HAVE_XINPUT=1;HAVE_FLOORF=1;HAVE_LIBGL=1;HAVE_MUSASHI=1;HAVE_STRICMP=1;HAVE_STDINT_H=1;HAVE_WFOPEN=1;_CRT_SECURE_NO_WARNINGS;SH2_TRACE=1;C68K_NO_JUMP_TABLE;DXERRH_IS_BROKEN;_USEGLEW_;GLEW_STATIC;PACKAGE="yabause";VERSION="0.9.15";_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>dxerr.lib;dinput8.lib;dxguid.lib;legacy_stdio_definitions.lib;Ws2_32.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Multimedia.lib;Qt5Network.lib;Qt5OpenGL.lib;Qt5Widgets.lib;qtmain.lib;dsound.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;HAVE_C99_VARIADIC_MACROS;HAVE_DIRECTINPUT=1;HAVE_DIRECTSOUND=1;HAVE_XINPUT=1;HAVE_FLOORF=1;HAVE_LIBGL=1;HAVE_MUSASHI=1;HAVE_STRICMP=1;HAVE_STDINT_H=1;HAVE_WFOPEN=1;_CRT_SECURE_NO_WARNINGS;SH2_TRACE=1;C68K_NO_JUMP_TABLE;DXERRH_IS_BROKEN;_USEGLEW_;GLEW_STATIC;PACKAGE="yabause";VERSION="0.9.15";_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>dxerr.lib;dinput8.lib;dxguid.lib;legacy_stdio_definitions.lib;Ws2_32.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Multimedia.lib;Qt5Network.lib;Qt5OpenGL.lib;Qt5Widgets.lib;qtmain.lib;dsound.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;HAVE_C99_VARIADIC_MACROS;HAVE_DIRECTINPUT=1;HAVE_DIRECTSOUND=1;HAVE_XINPUT=1;HAVE_FLOORF=1;HAVE_LIBGL=1;HAVE_MUSASHI=1;HAVE_STRICMP=1;HAVE_STDINT_H=1;HAVE_WFOPEN=1;_CRT_SECURE_NO_WARNINGS;SH2_TRACE=1;C68K_NO_JUMP_TABLE;DXERRH_IS_BROKEN;_USEGLEW_;GLEW_STATIC;PACKAGE="yabause";VERSION="0.9.15";NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>dxerr.lib;dinput8.lib;dxguid.lib;legacy_stdio_definitions.lib;Ws2_32.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Multimedia.lib;Qt5Network.lib;Qt5OpenGL.lib;Qt5Widgets.lib;qtmain.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;HAVE_C99_VARIADIC_MACROS;HAVE_DIRECTINPUT=1;HAVE_DIRECTSOUND=1;HAVE_XINPUT=1;HAVE_FLOORF=1;HAVE_LIBGL=1;HAVE_MUSASHI=1;HAVE_STRICMP=1;HAVE_STDINT_H=1;HAVE_WFOPEN=1;_CRT_SECURE_NO_WARNINGS;SH2_TRACE=1;C68K_NO_JUMP_TABLE;DXERRH_IS_BROKEN;_USEGLEW_;GLEW_STATIC;PACKAGE="yabause";VERSION="0.9.15";NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>dxerr.lib;dinput8.lib;dxguid.lib;legacy_stdio_definitions.lib;Ws2_32.lib;Qt5Core.lib;Qt5Gui.lib;Qt5Multimedia.lib;Qt5Network.lib;Qt5OpenGL.lib;Qt5Widgets.lib;qtmain.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="68k\m68kc68k.c" />
+    <ClCompile Include="68k\m68kcore.c" />
+    <ClCompile Include="68k\m68kd.c" />
+    <ClCompile Include="68k\m68kmusashi.c" />
+    <ClCompile Include="68k\m68kq68.c" />
+    <ClCompile Include="68k\musashi\m68kcpu.c" />
+    <ClCompile Include="68k\musashi\m68kdasm.c" />
+    <ClCompile Include="68k\musashi\m68kopac.c" />
+    <ClCompile Include="68k\musashi\m68kopdm.c" />
+    <ClCompile Include="68k\musashi\m68kopnz.c" />
+    <ClCompile Include="68k\musashi\m68kops.c" />
+    <ClCompile Include="bios.c" />
+    <ClCompile Include="carts\japmodem.c" />
+    <ClCompile Include="carts\netlink.c" />
+    <ClCompile Include="cd-windows.c" />
+    <ClCompile Include="cdbase.c" />
+    <ClCompile Include="cdb\lle\cd_drive.c" />
+    <ClCompile Include="cdb\lle\mpeg_card.c" />
+    <ClCompile Include="cdb\lle\sh7034.c" />
+    <ClCompile Include="cdb\lle\ygr.c" />
+    <ClCompile Include="cheat.c" />
+    <ClCompile Include="coffelf.c" />
+    <ClCompile Include="cs0.c" />
+    <ClCompile Include="cs1.c" />
+    <ClCompile Include="cs2.c" />
+    <ClCompile Include="debug.c" />
+    <ClCompile Include="error.c" />
+    <ClCompile Include="gameinfo.c" />
+    <ClCompile Include="memory.c" />
+    <ClCompile Include="perdx.c" />
+    <ClCompile Include="peripheral.c" />
+    <ClCompile Include="profile.c" />
+    <ClCompile Include="scsp\scsp.c" />
+    <ClCompile Include="scsp\scspdsp.c" />
+    <ClCompile Include="scu\scu.c" />
+    <ClCompile Include="sh2\sh2cache.c" />
+    <ClCompile Include="sh2\sh2core.c" />
+    <ClCompile Include="sh2\sh2d.c" />
+    <ClCompile Include="sh2\sh2iasm.c" />
+    <ClCompile Include="sh2\sh2idle.c" />
+    <ClCompile Include="sh2\sh2int.c" />
+    <ClCompile Include="sh2\sh2trace.c" />
+    <ClCompile Include="smpc.c" />
+    <ClCompile Include="socket\sock-windows.c" />
+    <ClCompile Include="sound\snddummy.c" />
+    <ClCompile Include="sound\snddx.c" />
+    <ClCompile Include="sound\sndwav.c" />
+    <ClCompile Include="threads\thr-windows.c" />
+    <ClCompile Include="tsunami\Tsunami.c" />
+    <ClCompile Include="tsunami\yab_tsunami.c" />
+    <ClCompile Include="vdp1.c" />
+    <ClCompile Include="vdp2.c" />
+    <ClCompile Include="vdp2debug.c" />
+    <ClCompile Include="video\cores\vidogl.c" />
+    <ClCompile Include="video\cores\vidshared.c" />
+    <ClCompile Include="video\cores\vidsoft.c" />
+    <ClCompile Include="video\gllibs\glew\glew.c" />
+    <ClCompile Include="video\osdcore.c" />
+    <ClCompile Include="video\titan\titan.c" />
+    <ClCompile Include="video\ygl\yglcache.c" />
+    <ClCompile Include="video\ygl\yglcache.cpp" />
+    <ClCompile Include="video\ygl\ygles.c" />
+    <ClCompile Include="video\ygl\yglshaderes.c" />
+    <ClCompile Include="yabause.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="bios.h" />
+    <ClInclude Include="cdbase.h" />
+    <ClInclude Include="cd_drive.h" />
+    <ClInclude Include="cheat.h" />
+    <ClInclude Include="coffelf.h" />
+    <ClInclude Include="core.h" />
+    <ClInclude Include="cs0.h" />
+    <ClInclude Include="cs1.h" />
+    <ClInclude Include="cs2.h" />
+    <ClInclude Include="debug.h" />
+    <ClInclude Include="dx.h" />
+    <ClInclude Include="error.h" />
+    <ClInclude Include="fakeddk.h" />
+    <ClInclude Include="font.h" />
+    <ClInclude Include="gameinfo.h" />
+    <ClInclude Include="glext.h" />
+    <ClInclude Include="japmodem.h" />
+    <ClInclude Include="m68kc68k.h" />
+    <ClInclude Include="m68kcore.h" />
+    <ClInclude Include="m68kd.h" />
+    <ClInclude Include="m68kmusashi.h" />
+    <ClInclude Include="memory.h" />
+    <ClInclude Include="movie.h" />
+    <ClInclude Include="mpeg_card.h" />
+    <ClInclude Include="musashi\m68kconf.h" />
+    <ClInclude Include="musashi\m68kcpu.h" />
+    <ClInclude Include="netlink.h" />
+    <ClInclude Include="osdcore.h" />
+    <ClInclude Include="perdx.h" />
+    <ClInclude Include="peripheral.h" />
+    <ClInclude Include="profile.h" />
+    <ClInclude Include="qt\Arguments.h" />
+    <ClInclude Include="qt\CommonDialogs.h" />
+    <ClInclude Include="qt\PerQt.h" />
+    <ClInclude Include="qt\QtYabause.h" />
+    <ClInclude Include="qt\Settings.h" />
+    <ClInclude Include="qt\VolatileSettings.h" />
+    <ClInclude Include="qt\YabauseGL.h" />
+    <ClInclude Include="qt\YabauseGLProxy.h" />
+    <ClInclude Include="qt\YabauseSoftGL.h" />
+    <ClInclude Include="qt\YabauseThread.h" />
+    <ClInclude Include="screen.h" />
+    <ClInclude Include="scsp.h" />
+    <ClInclude Include="scsp2.h" />
+    <ClInclude Include="scspdsp.h" />
+    <ClInclude Include="scsp_dsp_jit.h" />
+    <ClInclude Include="scu.h" />
+    <ClInclude Include="scu_dsp_jit.h" />
+    <ClInclude Include="sh-opc.h" />
+    <ClInclude Include="sh2cache.h" />
+    <ClInclude Include="sh2core.h" />
+    <ClInclude Include="sh2d.h" />
+    <ClInclude Include="sh2iasm.h" />
+    <ClInclude Include="sh2idle.h" />
+    <ClInclude Include="sh2int.h" />
+    <ClInclude Include="sh2trace.h" />
+    <ClInclude Include="sh2_jit.h" />
+    <ClInclude Include="sh7034.h" />
+    <ClInclude Include="smpc.h" />
+    <ClInclude Include="sndal.h" />
+    <ClInclude Include="snddx.h" />
+    <ClInclude Include="sock.h" />
+    <ClInclude Include="threads.h" />
+    <ClInclude Include="tsunami\Tsunami.h" />
+    <ClInclude Include="tsunami\TsunamiPrivate.h" />
+    <ClInclude Include="tsunami\yab_tsunami.h" />
+    <ClInclude Include="vdp1.h" />
+    <ClInclude Include="vdp2.h" />
+    <ClInclude Include="vdp2debug.h" />
+    <ClInclude Include="vidogl.h" />
+    <ClInclude Include="vidshared.h" />
+    <ClInclude Include="vidsoft.h" />
+    <ClInclude Include="yabause.h" />
+    <ClInclude Include="ygl.h" />
+    <ClInclude Include="yui.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

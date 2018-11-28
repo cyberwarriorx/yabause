@@ -1,0 +1,3 @@
+-o
+../../ui/moc_UIWheelSetting.cpp
+../../ui/UIWheelSetting.h
